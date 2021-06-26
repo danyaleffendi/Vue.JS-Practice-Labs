@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>v-if If Statements</title>
+		<meta charset="UTF-8">
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		<style>
+			.card {
+                box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+                transition: 0.3s;
+                width: 250px;
+                }
+            .container {
+            padding: 2px 16px;
+            }
+		</style>
+	</head>
+	<body>
+        <h2>User Profiles</h2>
+        <div id="app" class="card">            
+                <img v-if="profile.photo" :src="profile.photo" v-bind:style="image.width">  
+                <img v-else :src="image.photo" v-bind:style="image.width">            
+            <div class="container">
+              <h4 v-if="profile.fname">{{profile.fname}} {{profile.lname}} </h4>
+              <h4 v-else>Name Missing</h4>
+              <p v-if="profile.bio">{{profile.bio}}</p>
+              <p v-else>No Bio Available</p>
+            </div>
+          </div>
+	
+	<script>
+	var app = new Vue({
+		el: '#app',
+		
+		data:{			
+			profile:{
+				fname: "Danyal",
+				lname: "Effendi",
+                bio: "Marketer turned Web Developer.",
+                photo: 'images/Danyal-P.png',
+			},
+			image:{
+                width : 'width:250px;',                
+                photo: 'images/blank-profile-picture.png',
+            }
+		}
+		
+	});
+	</script>
+
+	</body>
+</html>

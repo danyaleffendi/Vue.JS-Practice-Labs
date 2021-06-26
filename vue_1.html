@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Intro to v-bind</title>
+		<meta charset="UTF-8">
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		<style>
+			.container{background:#cecece;}
+			.highlight{border: 1px solid yellow;}
+		</style>
+	</head>
+	<body>
+	
+	<div id="app">
+	
+		<span v-bind:class="[loadClass, anotherClass]">
+			look at me!
+		</span>
+	</div>
+	<div id="image">
+  		<img :src="image" v-bind:title="title"  v-bind:alt="alt" v-bind:style="width">
+	</div>
+	<script>
+
+	
+	var app = new Vue({
+		el: '#app',
+		data:{
+			loadClass : 'container',
+			anotherClass : 'highlight',
+		}
+	});
+
+	var app = new Vue({		
+		el: '#image',
+		data:{
+			alt : 'Green color Aston Martin F1 car on track',
+			image: 'images/aston-martin.jpg',
+			title: 'Vettel driving Aston Martin F1 car',
+			width : 'width:500px;',
+			
+		}
+	});
+	
+	</script>
+	</body>
+</html>
